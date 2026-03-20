@@ -1,52 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-    body { background:#0e0e0e; color:white; font-family:Arial; }
-    #frame {
-      width: 400px;
-      margin: 100px auto;
-      background:#1a1a1a;
-      padding:15px;
-      border-radius:10px;
-    }
-    textarea {
-      width:100%;
-      height:120px;
-      background:#111;
-      color:#0f0;
-      border:none;
-      padding:10px;
-    }
-    button {
-      margin-top:10px;
-      width:100%;
-      height:40px;
-      background:#2a2a2a;
-      color:white;
-      border:none;
-      border-radius:6px;
-    }
-  </style>
-</head>
-<body>
-
-<div id="frame">
-  <h3>Delta Style Executor</h3>
-  <textarea id="code">// type JS here</textarea>
-  <button onclick="runCode()">Execute</button>
-</div>
-
-<script>
-function runCode() {
-  const code = document.getElementById("code").value;
-  try {
-    eval(code); // runs code inside YOUR app only
-  } catch (e) {
-    console.error(e);
-  }
-}
-</script>
-
 </body>
-</html>
+</html>// Simple teleport GUI example for local testing
+document.body.style.background = "#222"; // dark background
+
+// Create GUI container
+const gui = document.createElement("div");
+gui.style.position = "fixed";
+gui.style.top = "10px";
+gui.style.left = "10px";
+gui.style.padding = "10px";
+gui.style.background = "#444";
+gui.style.color = "#fff";
+gui.style.fontFamily = "Arial";
+gui.style.borderRadius = "5px";
+gui.style.zIndex = "9999";
+document.body.appendChild(gui);
+
+// Teleport button
+const teleportBtn = document.createElement("button");
+teleportBtn.innerText = "Teleport";
+teleportBtn.style.margin = "5px";
+teleportBtn.onclick = () => {
+    const x = Math.floor(Math.random() * 500);
+    const y = Math.floor(Math.random() * 500);
+    const z = Math.floor(Math.random() * 500);
+    console.log(`Teleporting to: ${x}, ${y}, ${z}`);
+    alert(`Teleporting to: ${x}, ${y}, ${z}`); // simulation
+};
+gui.appendChild(teleportBtn);
+
+// Fly toggle button
+const flyBtn = document.createElement("button");
+flyBtn.innerText = "Toggle Fly";
+flyBtn.style.margin = "5px";
+let flying = false;
+flyBtn.onclick = () => {
+    flying = !flying;
+    console.log(`Flying: ${flying}`);
+    alert(`Flying: ${flying}`);
+};
+gui.appendChild(flyBtn);
+
+// Godmode toggle button
+const godmodeBtn = document.createElement("button");
+godmodeBtn.innerText = "Toggle Godmode";
+godmodeBtn.style.margin = "5px";
+let godmode = false;
+godmodeBtn.onclick = () => {
+    godmode = !godmode;
+    console.log(`Godmode: ${godmode}`);
+    alert(`Godmode: ${godmode}`);
+};
+gui.appendChild(godmodeBtn);
